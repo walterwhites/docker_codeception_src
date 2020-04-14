@@ -1,6 +1,6 @@
-FROM php:7.4.0-cli
+FROM php:7.4.4-cli
 
-MAINTAINER Tobias Munk tobias@diemeisterei.de
+MAINTAINER Flo Flo contact.magician@gmail.com
 
 # Install required system packages
 RUN apt-get update && \
@@ -23,7 +23,7 @@ RUN docker-php-ext-install \
 RUN pecl install \
         mongodb \
         apcu \
-        xdebug-2.7.2 && \
+        xdebug-2.9.4 && \
     docker-php-ext-enable \
         apcu.so \
         mongodb.so \
