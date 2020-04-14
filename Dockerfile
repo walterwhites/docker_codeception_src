@@ -43,16 +43,6 @@ RUN composer global require --prefer-dist --no-interaction --optimize-autoloader
 # Prepare application
 WORKDIR /repo
 
-# Install vendor
-COPY ./composer.json /repo/composer.json
-RUN composer install --prefer-dist --no-interaction --optimize-autoloader --apcu-autoloader
-
-# Add source-code
-COPY . /repo
-
-ENV PATH /repo:${PATH}
-ENTRYPOINT ["codecept"]
-
 # Prepare host-volume working directory
 RUN mkdir /project
 WORKDIR /project
